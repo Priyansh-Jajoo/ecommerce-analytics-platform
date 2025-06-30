@@ -6,7 +6,7 @@ This project provides a comprehensive, end-to-end analytics solution for the Oli
 
 The project demonstrates a full data science workflow, from data engineering and warehousing to business intelligence and MLOps deployment.
 
-![Streamlit App Screenshot](https://i.imgur.com/aed90e57-6920-4b10-9ed4-0ffce9f4c792.png)
+![Streamlit App Showcase](streamlit_app_showcase.png)
 
 ---
 
