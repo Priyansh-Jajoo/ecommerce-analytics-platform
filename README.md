@@ -1,4 +1,4 @@
-End-to-End E-commerce Analytics Platform
+# End-to-End E-commerce Analytics Platform
 This repository contains the complete source code for an end-to-end data analytics project built on the Olist E-commerce dataset. The project demonstrates a full data lifecycle, from raw data ingestion and warehousing to business intelligence, predictive modeling, and deployment in an interactive web application.
 
 🚀 Live Application
