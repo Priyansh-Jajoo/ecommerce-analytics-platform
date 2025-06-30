@@ -1,99 +1,98 @@
-# 📦 End-to-End E-commerce Analytics Platform
+# End-to-End E-commerce Analytics Platform
 
-This repository contains the complete source code for an end-to-end data analytics project built on the **Olist E-commerce dataset**. The project demonstrates a full data lifecycle — from raw data ingestion and warehousing to business intelligence, predictive modeling, and deployment in an interactive web application.
+## Project Overview
 
----
+This project provides a comprehensive, end-to-end analytics solution for the Olist e-commerce dataset. The goal was to architect a modern data platform that simulates a real-world business environment, moving from raw data ingestion and warehousing to deployed machine learning models. The analysis uncovers key business trends through a Power BI dashboard, predicts customer churn using a classification model, and provides real-time product suggestions with a recommendation engine.
 
-## 🛠️ Tech Stack & Tools
-- Python
-- MySQL
-- Snowflake
-- Power BI
-- Scikit-learn
-- Streamlit
+The project demonstrates a full data science workflow, from data engineering and warehousing to business intelligence and MLOps deployment.
+
+![Streamlit App Screenshot](https://i.imgur.com/aed90e57-6920-4b10-9ed4-0ffce9f4c792.png)
 
 ---
 
-## 📋 Project Overview
+## Key Features
 
-This project simulates a real-world analytics environment for an e-commerce company. The primary goal is to leverage data to drive business decisions by providing insights into historical performance, predicting future customer behavior, and offering real-time product recommendations. The platform integrates **data engineering**, **business intelligence**, and **machine learning** to create a comprehensive suite of analytical tools.
-
-### 🔑 Key Features
-- **ETL Pipeline**: Architected a robust Python pipeline to extract data from a transactional MySQL database, transform it, and load it into a Snowflake cloud data warehouse.
-- **Business Intelligence Dashboard**: Developed an interactive Power BI dashboard connected to Snowflake for analyzing KPIs like sales trends, geographic performance, and top-selling product categories.
-- **Predictive Modeling**: Built a machine learning model to predict customer churn using RFM (Recency, Frequency, Monetary) features. Addressed a data leakage issue to ensure realistic performance metrics.
-- **Recommendation Engine**: Created a "frequently bought together" model using co-purchase pattern analysis.
-- **Interactive Web Application**: Deployed both models in a Streamlit app for real-time insights accessible to non-technical users.
-
----
-
-## 🏗️ Architecture
-
-MySQL DB (Source)
-↓
-Python ETL Script
-↓
-Snowflake DWH (Cloud)
-↓
-Power BI & Python ML
-↓
-Streamlit App (Deployment)
+* **Data Engineering & ETL**: Architected a robust Python pipeline that extracts data from a source MySQL database, transforms it, and loads it into a Snowflake cloud data warehouse for scalable analytics.
+* **Business Intelligence Dashboard**: Developed an interactive Power BI dashboard connected directly to Snowflake, visualizing key performance indicators (KPIs) like sales trends over time, sales by geographic location, and top-selling product categories.
+* **Predictive Modeling (Churn)**:
+    * Engineered features for Recency, Frequency, and Monetary (RFM) analysis using SQL within Snowflake.
+    * Trained a Logistic Regression model to predict customer churn, identifying and remediating a data leakage issue to establish a realistic performance baseline.
+* **Machine Learning (Recommendations)**:
+    * Developed a "Frequently Bought Together" recommendation engine by analyzing product co-purchase patterns from transaction data.
+* **Interactive Application Deployment**: Deployed both the churn and recommendation models into a live, user-friendly web application using Streamlit, allowing for real-time predictions and decision support.
 
 ---
 
-## ⚙️ Setup and Installation
+## Data Source
 
-### 🔧 Prerequisites
-- Python 3.8+
-- MySQL Server
-- Power BI Desktop
-- Snowflake account
+The project uses the popular **Brazilian E-Commerce Public Dataset by Olist**, which contains information on 100,000 orders from 2016 to 2018. The dataset is relational and split into multiple files, including information on customers, orders, payments, products, and sellers. It was sourced from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
-### 🔽 1. Clone the Repository
-```
-git clone [your-repository-url]
-cd [your-repository-name]
-🧱 2. Install Python Dependencies
-It is recommended to create a virtual environment first.
+---
 
-pip install -r requirements.txt
-Note: Create the requirements.txt file using:
-pip freeze > requirements.txt
-Includes: pandas, sqlalchemy, mysql-connector-python, snowflake-connector-python, snowflake-sqlalchemy, scikit-learn, joblib, streamlit
+## Technologies & Libraries
 
-🗃️ 3. Set Up the Source Database (MySQL)
-Download the Olist Dataset from Kaggle and place the CSV files in the project root.
+* **Python 3.x**
+* **SQL**
+* **Databases**: MySQL, Snowflake
+* **BI Tool**: Power BI
+* **Python Libraries**: pandas, SQLAlchemy, scikit-learn, streamlit, joblib, mysql-connector-python, snowflake-connector-python, snowflake-sqlalchemy
 
-Open load_data.py and add your MySQL root password.
+---
 
-Run:
-python load_data.py
-☁️ 4. Set Up the Cloud Warehouse (Snowflake)
-Log in to your Snowflake account.
+## How to Run
 
-Open a new worksheet and run the commands from snowflake_setup.sql to create the warehouse, database, and user.
+1.  **Clone the repository:**
+    ```bash
+    git clone [your-repository-url]
+    cd [your-repository-name]
+    ```
 
-🛠️ 5. Run the ETL Pipeline
-Open mysql_to_snowflake.py and fill in MySQL/Snowflake credentials.
+2.  **Install the required libraries:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *(Note: Create a `requirements.txt` file by running `pip freeze > requirements.txt` in your terminal.)*
 
-Run:
-python mysql_to_snowflake.py
-🤖 6. Train the Machine Learning Models
-Open train_churn_model.py and train_recommender.py and fill in your Snowflake credentials.
+3.  **Set up the environment:**
+    * Ensure you have active MySQL Server and Power BI Desktop installations.
+    * Create a free Snowflake account.
+    * Fill in your credentials in all Python scripts (`load_data.py`, `mysql_to_snowflake.py`, `train_churn_model.py`, `train_recommender.py`, `app.py`).
 
-Run:
-python train_churn_model.py
-python train_recommender.py
-🚀 7. Launch the Interactive Application
-Open app.py and fill in your Snowflake credentials.
+4.  **Execute the scripts in order:**
+    Run the following commands from your terminal.
+    ```bash
+    # 1. Load data into MySQL
+    python load_data.py
+    
+    # 2. Run ETL to move data to Snowflake
+    python mysql_to_snowflake.py
+    
+    # 3. Train the ML models
+    python train_churn_model.py
+    python train_recommender.py
+    
+    # 4. Launch the web application
+    streamlit run app.py
+    ```
 
-Run:
-streamlit run app.py
-Your web browser will automatically open with the live application.
+---
 
-📊 Dashboard Showcase
+## Summary of Results
 
+The project successfully created a full suite of analytics tools, providing both historical insights and predictive capabilities.
 
+#### Churn Model Performance
 
-🤖 Application Showcase
+The Logistic Regression model established a realistic baseline for predicting customer churn based on their purchase frequency and monetary value.
 
+| Model                 | Accuracy | Precision (Churned) | Recall (Churned) | F1-Score (Churned) |
+| :-------------------- | :------- | :------------------ | :--------------- | :----------------- |
+| **Logistic Regression** | **57%** | **0.71** | **0.65** | **0.68** |
+
+*Note: The primary goal was to build the end-to-end pipeline. The model's performance could be further improved by engineering more features (e.g., sentiment from reviews, product category preferences).*
+
+#### Dashboard & Application Showcase
+
+The Power BI dashboard provides a comprehensive overview of business health, while the Streamlit application successfully deploys the ML models for interactive use.
+
+![Power BI Dashboard](https://i.imgur.com/3q1tL9w.png)
