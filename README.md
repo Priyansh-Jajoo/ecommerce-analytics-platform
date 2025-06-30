@@ -43,8 +43,8 @@ The project uses the popular **Brazilian E-Commerce Public Dataset by Olist**, w
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your-repository-url]
-    cd [your-repository-name]
+    git clone https://github.com/Priyansh-Jajoo/ecommerce-analytics-platform.git
+    cd ecommerce-analytics-platform
     ```
 
 2.  **Install the required libraries:**
