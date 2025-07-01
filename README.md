@@ -95,4 +95,4 @@ The Logistic Regression model established a realistic baseline for predicting cu
 
 The Power BI dashboard provides a comprehensive overview of business health, while the Streamlit application successfully deploys the ML models for interactive use.
 
-![Power BI Dashboard](https://i.imgur.com/3q1tL9w.png)
+![Power BI Dashboard](powerbi_dashboard_showcase.png)
